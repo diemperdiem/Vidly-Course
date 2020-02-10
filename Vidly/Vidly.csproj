@@ -195,16 +195,158 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002062323293_InitialModel.cs" />
+    <Compile Include="Migrations\202002062323293_InitialModel.Designer.cs">
+      <DependentUpon>202002062323293_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002062338146_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\202002062338146_AddIsSubscribedToCustomer.Designer.cs">
+      <DependentUpon>202002062338146_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002062342160_AddMembershipType.cs" />
+    <Compile Include="Migrations\202002062342160_AddMembershipType.Designer.cs">
+      <DependentUpon>202002062342160_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002062343509_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202002062343509_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>202002062343509_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002062351371_ApplyAnotationsToCustomerName.cs" />
+    <Compile Include="Migrations\202002062351371_ApplyAnotationsToCustomerName.Designer.cs">
+      <DependentUpon>202002062351371_ApplyAnotationsToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070003295_ErrorEnLaClaseUsuario.cs" />
+    <Compile Include="Migrations\202002070003295_ErrorEnLaClaseUsuario.Designer.cs">
+      <DependentUpon>202002070003295_ErrorEnLaClaseUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070018539_NameAddedToMembershipType.cs" />
+    <Compile Include="Migrations\202002070018539_NameAddedToMembershipType.Designer.cs">
+      <DependentUpon>202002070018539_NameAddedToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070023524_NameAddedToMembershipTypeQuery.cs" />
+    <Compile Include="Migrations\202002070023524_NameAddedToMembershipTypeQuery.Designer.cs">
+      <DependentUpon>202002070023524_NameAddedToMembershipTypeQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070040203_BirthDateAddedToCustomer.cs" />
+    <Compile Include="Migrations\202002070040203_BirthDateAddedToCustomer.Designer.cs">
+      <DependentUpon>202002070040203_BirthDateAddedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070046207_MadeDTNullable.cs" />
+    <Compile Include="Migrations\202002070046207_MadeDTNullable.Designer.cs">
+      <DependentUpon>202002070046207_MadeDTNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070053404_MoviesTableAdded.cs" />
+    <Compile Include="Migrations\202002070053404_MoviesTableAdded.Designer.cs">
+      <DependentUpon>202002070053404_MoviesTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070057236_GENERETABLEADDED.cs" />
+    <Compile Include="Migrations\202002070057236_GENERETABLEADDED.Designer.cs">
+      <DependentUpon>202002070057236_GENERETABLEADDED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070103271_MOVIEATTRIBUTESUPDATED.cs" />
+    <Compile Include="Migrations\202002070103271_MOVIEATTRIBUTESUPDATED.Designer.cs">
+      <DependentUpon>202002070103271_MOVIEATTRIBUTESUPDATED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070105090_FULLMERGEMOVIEANDGENERE.cs" />
+    <Compile Include="Migrations\202002070105090_FULLMERGEMOVIEANDGENERE.Designer.cs">
+      <DependentUpon>202002070105090_FULLMERGEMOVIEANDGENERE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070108589_POPULATEGENEREANDMOVIESTABLES.cs" />
+    <Compile Include="Migrations\202002070108589_POPULATEGENEREANDMOVIESTABLES.Designer.cs">
+      <DependentUpon>202002070108589_POPULATEGENEREANDMOVIESTABLES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070122211_MOVIEATTRIBUTESUPDATED1.cs" />
+    <Compile Include="Migrations\202002070122211_MOVIEATTRIBUTESUPDATED1.Designer.cs">
+      <DependentUpon>202002070122211_MOVIEATTRIBUTESUPDATED1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070123548_POPULATEGENEREANDMOVIESTABLES1.cs" />
+    <Compile Include="Migrations\202002070123548_POPULATEGENEREANDMOVIESTABLES1.Designer.cs">
+      <DependentUpon>202002070123548_POPULATEGENEREANDMOVIESTABLES1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070127109_MoviesDATA.cs" />
+    <Compile Include="Migrations\202002070127109_MoviesDATA.Designer.cs">
+      <DependentUpon>202002070127109_MoviesDATA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070137164_REUPLOADMOVIESDATA.cs" />
+    <Compile Include="Migrations\202002070137164_REUPLOADMOVIESDATA.Designer.cs">
+      <DependentUpon>202002070137164_REUPLOADMOVIESDATA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070138525_REUPLOADMOVIESDATA2.cs" />
+    <Compile Include="Migrations\202002070138525_REUPLOADMOVIESDATA2.Designer.cs">
+      <DependentUpon>202002070138525_REUPLOADMOVIESDATA2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002070157180_MadeRequiredMethods.cs" />
+    <Compile Include="Migrations\202002070157180_MadeRequiredMethods.Designer.cs">
+      <DependentUpon>202002070157180_MadeRequiredMethods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002071816590_1rstform.cs" />
+    <Compile Include="Migrations\202002071816590_1rstform.Designer.cs">
+      <DependentUpon>202002071816590_1rstform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002080037273_schemeupdatedformovies.cs" />
+    <Compile Include="Migrations\202002080037273_schemeupdatedformovies.Designer.cs">
+      <DependentUpon>202002080037273_schemeupdatedformovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002080135467_Migracionantesdeirme.cs" />
+    <Compile Include="Migrations\202002080135467_Migracionantesdeirme.Designer.cs">
+      <DependentUpon>202002080135467_Migracionantesdeirme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002082037547_SabadoLlegue.cs" />
+    <Compile Include="Migrations\202002082037547_SabadoLlegue.Designer.cs">
+      <DependentUpon>202002082037547_SabadoLlegue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002082047582_RemakingMovieTable.cs" />
+    <Compile Include="Migrations\202002082047582_RemakingMovieTable.Designer.cs">
+      <DependentUpon>202002082047582_RemakingMovieTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002082055112_RemakingMovieTable2.cs" />
+    <Compile Include="Migrations\202002082055112_RemakingMovieTable2.Designer.cs">
+      <DependentUpon>202002082055112_RemakingMovieTable2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002082126303_RemakingMovieTable3.cs" />
+    <Compile Include="Migrations\202002082126303_RemakingMovieTable3.Designer.cs">
+      <DependentUpon>202002082126303_RemakingMovieTable3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002082133556_RemakingMovieTable4.cs" />
+    <Compile Include="Migrations\202002082133556_RemakingMovieTable4.Designer.cs">
+      <DependentUpon>202002082133556_RemakingMovieTable4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002082218296_RemakingMovieTable6.cs" />
+    <Compile Include="Migrations\202002082218296_RemakingMovieTable6.Designer.cs">
+      <DependentUpon>202002082218296_RemakingMovieTable6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002082221357_RemakingMovieTable7.cs" />
+    <Compile Include="Migrations\202002082221357_RemakingMovieTable7.Designer.cs">
+      <DependentUpon>202002082221357_RemakingMovieTable7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002090025243_ImplementingValidation.cs" />
+    <Compile Include="Migrations\202002090025243_ImplementingValidation.Designer.cs">
+      <DependentUpon>202002090025243_ImplementingValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002090026300_ImplementingValidation1.cs" />
+    <Compile Include="Migrations\202002090026300_ImplementingValidation1.Designer.cs">
+      <DependentUpon>202002090026300_ImplementingValidation1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genere.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MoviesFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -220,6 +362,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -265,6 +408,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\Detail.cshtml" />
+    <Content Include="Views\Movies\Detail.cshtml" />
+    <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieFormat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -281,6 +431,107 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002062323293_InitialModel.resx">
+      <DependentUpon>202002062323293_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002062338146_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>202002062338146_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002062342160_AddMembershipType.resx">
+      <DependentUpon>202002062342160_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002062343509_PopulateMembershipTypes.resx">
+      <DependentUpon>202002062343509_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002062351371_ApplyAnotationsToCustomerName.resx">
+      <DependentUpon>202002062351371_ApplyAnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070003295_ErrorEnLaClaseUsuario.resx">
+      <DependentUpon>202002070003295_ErrorEnLaClaseUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070018539_NameAddedToMembershipType.resx">
+      <DependentUpon>202002070018539_NameAddedToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070023524_NameAddedToMembershipTypeQuery.resx">
+      <DependentUpon>202002070023524_NameAddedToMembershipTypeQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070040203_BirthDateAddedToCustomer.resx">
+      <DependentUpon>202002070040203_BirthDateAddedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070046207_MadeDTNullable.resx">
+      <DependentUpon>202002070046207_MadeDTNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070053404_MoviesTableAdded.resx">
+      <DependentUpon>202002070053404_MoviesTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070057236_GENERETABLEADDED.resx">
+      <DependentUpon>202002070057236_GENERETABLEADDED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070103271_MOVIEATTRIBUTESUPDATED.resx">
+      <DependentUpon>202002070103271_MOVIEATTRIBUTESUPDATED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070105090_FULLMERGEMOVIEANDGENERE.resx">
+      <DependentUpon>202002070105090_FULLMERGEMOVIEANDGENERE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070108589_POPULATEGENEREANDMOVIESTABLES.resx">
+      <DependentUpon>202002070108589_POPULATEGENEREANDMOVIESTABLES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070122211_MOVIEATTRIBUTESUPDATED1.resx">
+      <DependentUpon>202002070122211_MOVIEATTRIBUTESUPDATED1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070123548_POPULATEGENEREANDMOVIESTABLES1.resx">
+      <DependentUpon>202002070123548_POPULATEGENEREANDMOVIESTABLES1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070127109_MoviesDATA.resx">
+      <DependentUpon>202002070127109_MoviesDATA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070137164_REUPLOADMOVIESDATA.resx">
+      <DependentUpon>202002070137164_REUPLOADMOVIESDATA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070138525_REUPLOADMOVIESDATA2.resx">
+      <DependentUpon>202002070138525_REUPLOADMOVIESDATA2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002070157180_MadeRequiredMethods.resx">
+      <DependentUpon>202002070157180_MadeRequiredMethods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002071816590_1rstform.resx">
+      <DependentUpon>202002071816590_1rstform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002080037273_schemeupdatedformovies.resx">
+      <DependentUpon>202002080037273_schemeupdatedformovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002080135467_Migracionantesdeirme.resx">
+      <DependentUpon>202002080135467_Migracionantesdeirme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082037547_SabadoLlegue.resx">
+      <DependentUpon>202002082037547_SabadoLlegue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082047582_RemakingMovieTable.resx">
+      <DependentUpon>202002082047582_RemakingMovieTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082055112_RemakingMovieTable2.resx">
+      <DependentUpon>202002082055112_RemakingMovieTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082126303_RemakingMovieTable3.resx">
+      <DependentUpon>202002082126303_RemakingMovieTable3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082133556_RemakingMovieTable4.resx">
+      <DependentUpon>202002082133556_RemakingMovieTable4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082218296_RemakingMovieTable6.resx">
+      <DependentUpon>202002082218296_RemakingMovieTable6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082221357_RemakingMovieTable7.resx">
+      <DependentUpon>202002082221357_RemakingMovieTable7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002090025243_ImplementingValidation.resx">
+      <DependentUpon>202002090025243_ImplementingValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002090026300_ImplementingValidation1.resx">
+      <DependentUpon>202002090026300_ImplementingValidation1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

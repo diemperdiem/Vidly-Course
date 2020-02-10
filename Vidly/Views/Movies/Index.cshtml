@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Vidly.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+
+
+<div class="row">
+    <h2>
+        Movie
+        <small>
+            @Html.ActionLink("New Movie", "MovieFormat", "Movies", null, new { @class = "btn btn-primary" })
+        </small>
+    </h2>
+</div>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Movie</th>
+            <th>Genere</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Movie in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(Movie.Name, "Detail", "Movies", new { movId = Movie.Id}, null)</td>
+                <td>@Movie.Genere.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
