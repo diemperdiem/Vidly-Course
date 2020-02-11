@@ -25,7 +25,7 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var Customers = _context.customers.Include(c => c.MembershipType).ToList();
+            var Customers = _context.Customers.Include(c => c.MembershipType).ToList();
             return View(Customers);
         }
         [HttpPost]
@@ -45,11 +45,11 @@ namespace Vidly.Controllers
             }
             if (viewModel.Customer.Id == 0)
             {
-                _context.customers.Add(viewModel.Customer);
+                _context.Customers.Add(viewModel.Customer);
             }
             else
             {
-                var customerInDb = _context.customers.Single(c => c.Id == viewModel.Customer.Id);
+                var customerInDb = _context.Customers.Single(c => c.Id == viewModel.Customer.Id);
 
                 //Maper.Map(viewModel.Customer, customerInDb); Esta erramienta compara los atributos de los 2 y actualiza todo para no mandar manual todo
                 //Pero si no quieres que todo se actualiza tendrias que tener una subclase para no actualizar todo
@@ -67,7 +67,7 @@ namespace Vidly.Controllers
 
         public ActionResult Edit(int id)
         {
-            var customer = _context.customers.SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
             {
@@ -98,7 +98,7 @@ namespace Vidly.Controllers
 
         public ActionResult Detail(int id)
         {
-            var customer = _context.customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
             {

@@ -28,6 +28,9 @@
             <tr>
                 <td>@Html.ActionLink(Movie.Name, "Detail", "Movies", new { movId = Movie.Id}, null)</td>
                 <td>@Movie.Genere.Description</td>
+                <button>
+                    <button class="btn-link">Delete</button>                
+                </button>
             </tr>
         }
     </tbody>

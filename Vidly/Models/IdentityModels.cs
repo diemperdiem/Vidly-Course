@@ -21,7 +21,7 @@ namespace Vidly.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         //para crear tablas nuevas
-        public DbSet<Customer> customers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         public DbSet<Movie> Movies { get; set; }
 
