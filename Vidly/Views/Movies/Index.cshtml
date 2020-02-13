@@ -6,32 +6,88 @@
 <!-- Stack the columns on mobile by making one full-width and the other half-width -->
 
 
-<div class="row">
-    <h2>
-        Movie
-        <small>
-            @Html.ActionLink("New Movie", "MovieFormat", "Movies", null, new { @class = "btn btn-primary" })
-        </small>
-    </h2>
-</div>
+<h2>Movie</h2>
+<h2>@Html.ActionLink("New Movie", "MovieFormat", "Movies", null, new { @class = "btn btn-primary" })</h2>
 
-<table class="table table-bordered">
-    <thead class="thead-dark">
+
+<table id="movies" class="table table-bordered table-hover">
+    <thead>
         <tr>
             <th>Movie</th>
             <th>Genere</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var Movie in Model)
-        {
-            <tr>
-                <td>@Html.ActionLink(Movie.Name, "Detail", "Movies", new { movId = Movie.Id}, null)</td>
-                <td>@Movie.Genere.Description</td>
-                <button>
-                    <button class="btn-link">Delete</button>                
-                </button>
-            </tr>
-        }
+        @*@foreach (var Movie in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(Movie.Name, "Detail", "Movies", new { movId = Movie.Id}, null)</td>
+                    <td>@Movie.Genere.Description</td>
+                    @*<td>
+                        <button class="btn-link">Delete</button>
+                    </td>          </tr>
+            }*@
     </tbody>
 </table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function ()
+        {
+            var table = $("#movies").dataTable
+            (
+                {
+                    ajax:
+                        {
+                            url: "/API/Movies",
+                            dataSrc: ""
+                        },
+                    columns:
+                    [
+                        {
+                            data: "name",
+                            render: function (data, type, movie)
+                            {
+                                return "<a href='/Movies/Detail/" + movie.id + "'>" + movie.name + "</a>";
+                            }
+                        },
+                        {
+                            data: "genere.description"
+                        },
+                        {
+                            data: "id",
+                            render: function (data)
+                            {
+                                return "<button class='btn-link js-delete' data-movie-id=" + data + ">Delete</button>";
+                            }
+                        }
+                    ]
+
+                }
+            );
+
+            $("#movies").on("click", ".js-delete", function ()
+            {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this movie?", function (result)
+                {
+                    if (result)
+                    {
+                        $.ajax
+                        ({
+                            url: "/API/Movies/" + button.attr("data-movie-id"),
+                            method: "DELETE",
+                            success: function ()
+                            {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        })
+                    }
+                })
+            });
+        });
+    </script>    
+}

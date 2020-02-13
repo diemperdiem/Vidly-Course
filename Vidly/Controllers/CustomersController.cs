@@ -25,8 +25,10 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var Customers = _context.Customers.Include(c => c.MembershipType).ToList();
-            return View(Customers);
+            //var Customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            //return View(Customers);
+
+            return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

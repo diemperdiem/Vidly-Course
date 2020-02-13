@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Vidly.DTOs;
 using Vidly.Models;
+using System.Data.Entity;
 
 namespace Vidly.Controllers.API
 {
@@ -19,9 +20,14 @@ namespace Vidly.Controllers.API
             _context = new ApplicationDbContext();
         }
 
-        public IEnumerable<MovieDto> GetMovies()
+        public IHttpActionResult GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            var movies = _context.Movies
+                .Include(m => m.Genere)
+                .ToList()
+                .Select(Mapper.Map<Movie, MovieDto>);
+
+            return Ok(movies);
         }
 
         public IHttpActionResult GetMovie(int id)
@@ -47,15 +53,13 @@ namespace Vidly.Controllers.API
             }
             else
             {
-                var movieParse = (Mapper.Map<MovieDto, Movie>(movie));
-
+                var movieParse = Mapper.Map<MovieDto, Movie>(movie);
                 _context.Movies.Add(movieParse);
                 _context.SaveChanges();
 
                 movie.Id = movieParse.Id;
-
-                return Created(new Uri(Request.RequestUri + "/" + movie.Id),movie);
             }
+            return Created(new Uri(Request.RequestUri + "/" + movie.Id), movie);
         }
 
         [HttpPut]
@@ -69,11 +73,18 @@ namespace Vidly.Controllers.API
             {
                 var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == movieDTO.Id);
 
-                Mapper.Map(movieDTO, movieInDb);
+                if (movieInDb == null)
+                {
+                    throw new HttpResponseException(HttpStatusCode.NotFound);
+                }
+                else
+                {
+                    Mapper.Map(movieDTO, movieInDb);
 
-                _context.SaveChanges();
+                    _context.SaveChanges();
 
-                return Ok();
+                    return Ok();
+                }
             }
         }
 
@@ -84,16 +95,16 @@ namespace Vidly.Controllers.API
 
             if (movieInDb == null)
             {
-                return NotFound();
+                throw new HttpResponseException(HttpStatusCode.NotFound);
             }
             else
             {
                 _context.Movies.Remove(movieInDb);
+
                 _context.SaveChanges();
 
                 return Ok();
             }
         }
-
     }
 }

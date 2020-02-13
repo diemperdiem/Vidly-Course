@@ -5,22 +5,17 @@
 }
 
 <h2>Customers</h2>
-@if (!Model.Any())
-{
-    <p>We don't have any customers yet.</p>
-}
-else
-{
-    <table id="customers" class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>Customer</th>
-                <th>Type</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var customer in Model)
+
+<table id="customers" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Type</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*@foreach (var customer in Model)
              {
             <tr>
                 <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
@@ -29,35 +24,66 @@ else
                     <button data-customers-id="@customer.Id" class="btn-link js-delete">Delete</button>
                 </td>
             </tr>
-             }
-        </tbody>
-    </table>
-}
-@section scripts
-    {
-        <script>
-            $(document).ready(function ()
-            {
-                $("#customers").on("click", ".js-delete", function ()
-                {
-                    var button = $(this);
+             }*@
+    </tbody>
+</table>
 
-                    bootbox.confirm("Are you sure you want to delete customer?", function (result)
-                    {
-                        if (result)
-                        {   
-                            $.ajax
-                            ({
-                                url: "/API/Customers/" + button.attr("data-customers-id"),
-                                method: "DELETE",
-                                success: function () {
-                                    // console.log("Succes")
-                                    button.parents("tr").remove();
-                                }
-                            })
+@section scripts
+{
+    <script>
+        $(document).ready(function ()
+        {
+            var table = $("#customers").DataTable
+            (
+                {
+                    ajax:
+                        {
+                            url: "/API/Customers",
+                            dataSrc: ""
+                        },
+                    columns:
+                    [
+                        {
+                            data: "name",
+                            render: function (data, type, customer)
+                            {
+                                return "<a href='/Customers/Edit/" + customer.id + "'>" + customer.name + "</a>";
+                            }
+                        },
+                        {
+                            data: "membershipType.name"
+                        },
+                        {
+                            data: "id",
+                            render: function (data)
+                            {
+                                return "<button class='btn-link js-delete' data-customer-id=" + data + ">Delete</button>";
+                            }
                         }
-                    })
-                });
+                    ]
+                }
+            ); //Con esta funcion referencia #customers que es la tabla, y le mete sus atributos antes de renderizar
+
+            $("#customers").on("click", ".js-delete", function ()
+            {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete customer?", function (result)
+                {
+                    if (result)
+                    {   
+                        $.ajax
+                        ({
+                            url: "/API/Customers/" + button.attr("data-customer-id"),
+                            method: "DELETE",
+                            success: function ()
+                            {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        })
+                    }
+                })
             });
-        </script>
-    }
+        });
+    </script>
+}
