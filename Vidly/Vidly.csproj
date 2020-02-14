@@ -18,7 +18,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44314</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -358,15 +358,38 @@
     <Compile Include="Migrations\202002102040353_APIs.Designer.cs">
       <DependentUpon>202002102040353_APIs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002140020507_SeedUsers.cs" />
+    <Compile Include="Migrations\202002140020507_SeedUsers.Designer.cs">
+      <DependentUpon>202002140020507_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002140044051_adddrivinglicense.cs" />
+    <Compile Include="Migrations\202002140044051_adddrivinglicense.Designer.cs">
+      <DependentUpon>202002140044051_adddrivinglicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002140127122_adddrivinglicenseFix.cs" />
+    <Compile Include="Migrations\202002140127122_adddrivinglicenseFix.Designer.cs">
+      <DependentUpon>202002140127122_adddrivinglicenseFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002140149255_AddingPhoneNumer.cs" />
+    <Compile Include="Migrations\202002140149255_AddingPhoneNumer.Designer.cs">
+      <DependentUpon>202002140149255_AddingPhoneNumer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002140218028_AddingPhoneNumerFinal.cs" />
+    <Compile Include="Migrations\202002140218028_AddingPhoneNumerFinal.Designer.cs">
+      <DependentUpon>202002140218028_AddingPhoneNumerFinal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="ViewModels\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="Models\Genere.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
@@ -607,13 +630,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Detail.cshtml" />
     <Content Include="Views\Movies\Detail.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieFormat.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -734,6 +758,21 @@
     <EmbeddedResource Include="Migrations\202002102040353_APIs.resx">
       <DependentUpon>202002102040353_APIs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002140020507_SeedUsers.resx">
+      <DependentUpon>202002140020507_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002140044051_adddrivinglicense.resx">
+      <DependentUpon>202002140044051_adddrivinglicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002140127122_adddrivinglicenseFix.resx">
+      <DependentUpon>202002140127122_adddrivinglicenseFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002140149255_AddingPhoneNumer.resx">
+      <DependentUpon>202002140149255_AddingPhoneNumer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002140218028_AddingPhoneNumerFinal.resx">
+      <DependentUpon>202002140218028_AddingPhoneNumerFinal.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -753,7 +792,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60657</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60657/</IISUrl>
+          <IISUrl>https://localhost:44314/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
