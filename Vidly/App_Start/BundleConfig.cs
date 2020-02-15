@@ -14,7 +14,7 @@ namespace Vidly
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/DataTables/jquery.dataTables.js",
                         "~/Scripts/DataTables/dataTables.bootstrap.js"
-                        ));
+                        )); //se juntan los bundles para ahorrar requests
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
